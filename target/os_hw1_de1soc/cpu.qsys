@@ -264,6 +264,14 @@
          type = "String";
       }
    }
+   element scaleNPU_0
+   {
+      datum _sortIndex
+      {
+         value = "14";
+         type = "int";
+      }
+   }
    element timer
    {
       datum _sortIndex
@@ -561,6 +569,7 @@
   <parameter name="simDrivenValue" value="0" />
   <parameter name="width" value="2" />
  </module>
+ <module name="scaleNPU_0" kind="scaleNPU" version="1.0" enabled="1" />
  <module name="timer" kind="altera_avalon_timer" version="23.1" enabled="1">
   <parameter name="alwaysRun" value="false" />
   <parameter name="counterSize" value="32" />
@@ -580,6 +589,11 @@
    end="jtag_uart_0.avalon_jtag_slave">
   <parameter name="arbitrationPriority" value="1" />
   <parameter name="baseAddress" value="0x800030d8" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection kind="avalon" version="23.1" start="cpu.dmem" end="scaleNPU_0.csr">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x80004000" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection kind="avalon" version="23.1" start="cpu.dmem" end="memoria.s1">
@@ -650,6 +664,11 @@
   <parameter name="baseAddress" value="0x0000" />
   <parameter name="defaultConnection" value="false" />
  </connection>
+ <connection kind="avalon" version="23.1" start="scaleNPU_0.mem" end="memoria.s1">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x0000" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
  <connection kind="clock" version="23.1" start="clk_0.clk" end="jtag_uart_0.clk" />
  <connection
    kind="clock"
@@ -670,8 +689,13 @@
  <connection kind="clock" version="23.1" start="clk_0.clk" end="pio_buzzer.clk" />
  <connection kind="clock" version="23.1" start="clk_0.clk" end="pio_key_2.clk" />
  <connection kind="clock" version="23.1" start="clk_0.clk" end="cpu.clk" />
+ <connection kind="clock" version="23.1" start="clk_0.clk" end="scaleNPU_0.clk" />
  <connection kind="clock" version="23.1" start="clk_0.clk" end="memoria.clk1" />
- <connection kind="interrupt" version="23.1" start="cpu.irq" end="timer.irq">
+ <connection
+   kind="interrupt"
+   version="23.1"
+   start="cpu.irq"
+   end="scaleNPU_0.interrupt">
   <parameter name="irqNumber" value="0" />
  </connection>
  <connection
@@ -725,6 +749,11 @@
    start="clk_0.clk_reset"
    end="pio_key_2.reset" />
  <connection kind="reset" version="23.1" start="clk_0.clk_reset" end="timer.reset" />
+ <connection
+   kind="reset"
+   version="23.1"
+   start="clk_0.clk_reset"
+   end="scaleNPU_0.reset" />
  <connection
    kind="reset"
    version="23.1"
