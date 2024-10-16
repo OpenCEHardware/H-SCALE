@@ -1,0 +1,12 @@
+[submodule "modules/tools"]
+	path = modules/tools
+	url = https://github.com/OpenCEHardware/ScaleCore-BuildTools
+[submodule "modules/cpu"]
+	path = modules/cpu
+	url = https://github.com/OpenCEHardware/ScaleCore-V
+[submodule "modules/npu"]
+	path = modules/npu
+	url = https://github.com/OpenCEHardware/ScaleNPU
+[submodule "modules/sw"]
+	path = modules/sw
+	url = https://github.com/OpenCEHardware/ScaleCore-Software

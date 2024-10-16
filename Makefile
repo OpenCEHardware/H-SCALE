@@ -1,5 +1,12 @@
 top := hsv_core
-core_dirs := rtl sw target tb
+
+core_dirs := \
+  modules/cpu/rtl \
+  modules/cpu/tb  \
+  modules/npu/rtl \
+  modules/npu/tb  \
+  modules/sw/sw   \
+  target
 
 .PHONY: all
 
