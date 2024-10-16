@@ -136,9 +136,8 @@ class simulation
 
 		std::unique_ptr<Vtop> top;
 		std::uint64_t         time_ = 0;
-		axi_queue             imem_r_queue;
-		axi_queue             dmem_r_queue;
-		axi_queue             dmem_w_queue;
+		axi_queue             sys_r_queue;
+		axi_queue             sys_w_queue;
 		std::vector<mapping>  mappings;
 		std::atomic_bool      halt_ = false;
 		int                   exit_code_;

@@ -2,6 +2,8 @@ define core
   $(this)/deps  := hsv_host_sw
   $(this)/hooks := obj
 
+  $(this)/obj_deps := hsv_host_sw.hex
+
   $(this)/rtl_top   := cpu_inst
   $(this)/rtl_files := cpu_inst.v
 

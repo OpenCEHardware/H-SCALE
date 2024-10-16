@@ -131,21 +131,18 @@ int simulation::run()
 		}
 #endif
 
-		top.imem_rvalid = 0;
-		top.imem_arready = 0;
+		top.sys_bvalid = 0;
+		top.sys_rvalid = 0;
+		top.sys_wready = 0;
+		top.sys_arready = 0;
+		top.sys_awready = 0;
 
-		top.dmem_bvalid = 0;
-		top.dmem_rvalid = 0;
-		top.dmem_wready = 0;
-		top.dmem_arready = 0;
-		top.dmem_awready = 0;
-
-		top.clk_core = 0;
-		top.rst_core_n = 0;
+		top.clk = 0;
+		top.rst_n = 0;
 
 		this->run_cycles(2);
 
-		top.rst_core_n = 1;
+		top.rst_n = 1;
 		this->top->eval();
 	}
 
@@ -211,104 +208,79 @@ bool simulation::has_pending_io()
 {
 	auto &top = *this->top;
 
-	return top.imem_arready
-	    || top.imem_arvalid
-	    || top.imem_rvalid
-	    || top.dmem_bvalid
-	    || top.dmem_rvalid
-	    || top.dmem_wready
-	    || top.dmem_wvalid
-	    || top.dmem_arready
-	    || top.dmem_arvalid
-	    || top.dmem_arready
-	    || top.dmem_awvalid;
+	return top.sys_bvalid
+	    || top.sys_rvalid
+	    || top.sys_wready
+	    || top.sys_wvalid
+	    || top.sys_arready
+	    || top.sys_arvalid
+	    || top.sys_arready
+	    || top.sys_awvalid;
 }
 
 void simulation::io_cycle()
 {
 	auto &top = *this->top;
 
-	this->imem_r_queue.read_tx(
-		top.imem_rready,
-		top.imem_rvalid,
-		top.imem_rid,
-		top.imem_rdata,
-		top.imem_rresp,
-		top.imem_rlast
+	this->sys_r_queue.read_tx(
+		top.sys_rready,
+		top.sys_rvalid,
+		top.sys_rid,
+		top.sys_rdata,
+		top.sys_rresp,
+		top.sys_rlast
 	);
 
-	this->dmem_r_queue.read_tx(
-		top.dmem_rready,
-		top.dmem_rvalid,
-		top.dmem_rid,
-		top.dmem_rdata,
-		top.dmem_rresp,
-		top.dmem_rlast
+	this->sys_w_queue.write_tx(
+		top.sys_bready,
+		top.sys_bvalid,
+		top.sys_bid,
+		top.sys_bresp
 	);
 
-	this->dmem_w_queue.write_tx(
-		top.dmem_bready,
-		top.dmem_bvalid,
-		top.dmem_bid,
-		top.dmem_bresp
-	);
-
-	this->imem_r_queue.read_begin(top.imem_arready, top.imem_arvalid);
-	this->dmem_r_queue.read_begin(top.dmem_arready, top.dmem_arvalid);
-	this->dmem_w_queue.write_begin(top.dmem_awready, top.dmem_awvalid, top.dmem_wready, top.dmem_wvalid);
+	this->sys_r_queue.read_begin(top.sys_arready, top.sys_arvalid);
+	this->sys_w_queue.write_begin(top.sys_awready, top.sys_awvalid, top.sys_wready, top.sys_wvalid);
 
 	top.eval();
 
-	this->imem_r_queue.addr_rx(
-		top.imem_arready,
-		top.imem_arvalid,
-		top.imem_arid,
-		top.imem_arlen,
-		top.imem_arsize,
-		top.imem_arburst,
-		top.imem_araddr
+	this->sys_r_queue.addr_rx(
+		top.sys_arready,
+		top.sys_arvalid,
+		top.sys_arid,
+		top.sys_arlen,
+		top.sys_arsize,
+		top.sys_arburst,
+		top.sys_araddr
 	);
 
-	this->dmem_r_queue.addr_rx(
-		top.dmem_arready,
-		top.dmem_arvalid,
-		top.dmem_arid,
-		top.dmem_arlen,
-		top.dmem_arsize,
-		top.dmem_arburst,
-		top.dmem_araddr
+	this->sys_w_queue.addr_rx(
+		top.sys_awready,
+		top.sys_awvalid,
+		top.sys_awid,
+		top.sys_awlen,
+		top.sys_awsize,
+		top.sys_awburst,
+		top.sys_awaddr
 	);
 
-	this->dmem_w_queue.addr_rx(
-		top.dmem_awready,
-		top.dmem_awvalid,
-		top.dmem_awid,
-		top.dmem_awlen,
-		top.dmem_awsize,
-		top.dmem_awburst,
-		top.dmem_awaddr
+	bool write_rx_ok = this->sys_w_queue.write_rx(
+		top.sys_wready,
+		top.sys_wvalid,
+		top.sys_wdata,
+		top.sys_wlast,
+		top.sys_wstrb
 	);
 
-	bool write_rx_ok = this->dmem_w_queue.write_rx(
-		top.dmem_wready,
-		top.dmem_wvalid,
-		top.dmem_wdata,
-		top.dmem_wlast,
-		top.dmem_wstrb
-	);
-
-	this->imem_r_queue.read_end(top.imem_rready, top.imem_rvalid);
-	this->dmem_r_queue.read_end(top.dmem_rready, top.dmem_rvalid);
-	this->dmem_w_queue.write_end(top.dmem_bready, top.dmem_bvalid);
+	this->sys_r_queue.read_end(top.sys_rready, top.sys_rvalid);
+	this->sys_w_queue.write_end(top.sys_bready, top.sys_bvalid);
 
 	auto callback = [this](unsigned address)
 	{
 		return this->resolve_address(address);
 	};
 
-	this->imem_r_queue.do_reads(callback);
-	this->dmem_r_queue.do_reads(callback);
-	this->dmem_w_queue.do_writes(callback);
+	this->sys_r_queue.do_reads(callback);
+	this->sys_w_queue.do_writes(callback);
 
 	if (!write_rx_ok) [[unlikely]]
 		top.eval();
@@ -326,7 +298,7 @@ void simulation::run_cycles(unsigned cycles)
 #endif
 
 		this->time_++;
-		top.clk_core = 0;
+		top.clk = 0;
 		top.eval();
 
 #if VM_TRACE
@@ -335,7 +307,7 @@ void simulation::run_cycles(unsigned cycles)
 #endif
 
 		this->time_++;
-		top.clk_core = 1;
+		top.clk = 1;
 		top.eval();
 	}
 }
