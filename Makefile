@@ -6,6 +6,7 @@ core_dirs := \
   modules/npu/rtl \
   modules/npu/tb  \
   modules/sw/sw   \
+  rtl             \
   target
 
 .PHONY: all
