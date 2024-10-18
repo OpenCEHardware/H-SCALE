@@ -1,0 +1,174 @@
+[*]
+[*] GTKWave Analyzer v3.4.0 (w)1999-2022 BSI
+[*] Fri Oct 18 21:52:46 2024
+[*]
+[dumpfile] "/home/jachm/Repos/H-SCALE/kk.vcd"
+[dumpfile_mtime] "Fri Oct 18 18:59:59 2024"
+[dumpfile_size] 2448412259
+[savefile] "/home/jachm/Repos/H-SCALE/target/wave.gtkw"
+[timestart] 94935
+[size] 1920 985
+[pos] -27 -24
+*-4.799999 94968 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] TOP.
+[treeopen] TOP.hosted_top_flat.
+[treeopen] TOP.hosted_top_flat.top.
+[treeopen] TOP.hosted_top_flat.top.npu.
+[treeopen] TOP.hosted_top_flat.top.npu.executive.hwif_out.MAINCTRL.INIT.
+[treeopen] TOP.hosted_top_flat.top.npu.hwif_in.
+[treeopen] TOP.hosted_top_flat.top.npu.hwif_in.MAINCTRL.
+[treeopen] TOP.hosted_top_flat.top.npu.hwif_in.MAINCTRL.INIT.
+[treeopen] TOP.hosted_top_flat.top.npu.hwif_in.MAINCTRL.IRQ.
+[treeopen] TOP.hosted_top_flat.top.npu.hwif_out.
+[treeopen] TOP.hosted_top_flat.top.npu.hwif_out.MAINCTRL.
+[treeopen] TOP.hosted_top_flat.top.npu.hwif_out.MAINCTRL.INIT.
+[treeopen] TOP.hosted_top_flat.top.npu.hwif_out.MAINCTRL.IRQ.
+[sst_width] 297
+[signals_width] 349
+[sst_expanded] 1
+[sst_vpaned_height] 438
+@22
+[color] 4
+TOP.hosted_top_flat.top.npu.executive.num_input_rows_out[31:0]
+[color] 4
+TOP.hosted_top_flat.top.npu.executive.num_input_columns_out[31:0]
+[color] 4
+TOP.hosted_top_flat.top.npu.executive.num_weight_rows_out[31:0]
+[color] 4
+TOP.hosted_top_flat.top.npu.executive.num_weight_columns_out[31:0]
+@28
+[color] 4
+TOP.hosted_top_flat.top.npu.executive.reuse_inputs_out
+[color] 4
+TOP.hosted_top_flat.top.npu.executive.reuse_weights_out
+[color] 4
+TOP.hosted_top_flat.top.npu.executive.save_outputs_out
+[color] 4
+TOP.hosted_top_flat.top.npu.executive.use_bias_out
+[color] 4
+TOP.hosted_top_flat.top.npu.executive.use_sum_out
+@22
+[color] 4
+TOP.hosted_top_flat.top.npu.executive.shift_amount_out[31:0]
+@28
+[color] 4
+TOP.hosted_top_flat.top.npu.executive.activation_select_out
+@22
+[color] 4
+TOP.hosted_top_flat.top.npu.executive.base_address_out[31:0]
+[color] 4
+TOP.hosted_top_flat.top.npu.executive.result_address_out[31:0]
+@28
+[color] 2
+TOP.hosted_top_flat.top.npu.executive.memory_ordering_valid_o
+@420
+[color] 5
+TOP.hosted_top_flat.top.npu.memory_ordering.output_weights[0][15:0]
+[color] 5
+TOP.hosted_top_flat.top.npu.memory_ordering.output_weights[1][15:0]
+[color] 5
+TOP.hosted_top_flat.top.npu.memory_ordering.output_weights[2][15:0]
+[color] 5
+TOP.hosted_top_flat.top.npu.memory_ordering.output_weights[3][15:0]
+[color] 5
+TOP.hosted_top_flat.top.npu.memory_ordering.output_weights[4][15:0]
+[color] 5
+TOP.hosted_top_flat.top.npu.memory_ordering.output_weights[5][15:0]
+[color] 5
+TOP.hosted_top_flat.top.npu.memory_ordering.output_weights[6][15:0]
+@421
+[color] 5
+TOP.hosted_top_flat.top.npu.memory_ordering.output_weights[7][15:0]
+@420
+[color] 6
+TOP.hosted_top_flat.top.npu.memory_ordering.output_inputs[0][15:0]
+[color] 6
+TOP.hosted_top_flat.top.npu.memory_ordering.output_inputs[1][15:0]
+[color] 6
+TOP.hosted_top_flat.top.npu.memory_ordering.output_inputs[2][15:0]
+[color] 6
+TOP.hosted_top_flat.top.npu.memory_ordering.output_inputs[3][15:0]
+[color] 6
+TOP.hosted_top_flat.top.npu.memory_ordering.output_inputs[4][15:0]
+[color] 6
+TOP.hosted_top_flat.top.npu.memory_ordering.output_inputs[5][15:0]
+[color] 6
+TOP.hosted_top_flat.top.npu.memory_ordering.output_inputs[6][15:0]
+[color] 6
+TOP.hosted_top_flat.top.npu.memory_ordering.output_inputs[7][15:0]
+@28
+TOP.hosted_top_flat.top.npu.executive.hwif_out.MAINCTRL.INIT.VALUE.swmod
+TOP.hosted_top_flat.top.npu.executive.memory_ordering_valid_o
+[color] 3
+TOP.hosted_top_flat.top.npu.executive.irq
+TOP.hosted_top_flat.top.npu.hwif_out.MAINCTRL.IRQ.FINISHED.value
+TOP.hosted_top_flat.top.npu.hwif_in.MAINCTRL.IRQ.FINISHED.hwset
+TOP.hosted_top_flat.top.npu.hwif_in.MAINCTRL.INIT.VALUE.hwclr
+TOP.hosted_top_flat.top.npu_csr.wvalid
+@22
+TOP.hosted_top_flat.top.npu_csr.wdata[31:0]
+TOP.hosted_top_flat.top.npu_csr.awaddr[31:0]
+@28
+TOP.hosted_top_flat.top.irq_core
+TOP.hosted_top_flat.top.cpu.ctrlstatus.global_fsm.irq_pending
+@22
+TOP.hosted_top_flat.top.cpu.ctrlstatus.global_fsm.next_state[31:0]
+@28
+TOP.hosted_top_flat.top.cpu.ctrlstatus.global_fsm.current_mode[1:0]
+TOP.hosted_top_flat.top.cpu.ctrl_wait_irq
+TOP.hosted_top_flat.top.cpu.ctrl_begin_irq
+TOP.hosted_top_flat.top.npu.executive.finished
+TOP.hosted_top_flat.top.npu.executive.code[1:0]
+@420
+[color] 1
+TOP.hosted_top_flat.top.npu.memory_ordering.output_sums[0][31:0]
+[color] 1
+TOP.hosted_top_flat.top.npu.memory_ordering.output_sums[1][31:0]
+[color] 1
+TOP.hosted_top_flat.top.npu.memory_ordering.output_sums[2][31:0]
+[color] 1
+TOP.hosted_top_flat.top.npu.memory_ordering.output_sums[3][31:0]
+[color] 1
+TOP.hosted_top_flat.top.npu.memory_ordering.output_sums[4][31:0]
+[color] 1
+TOP.hosted_top_flat.top.npu.memory_ordering.output_sums[5][31:0]
+[color] 1
+TOP.hosted_top_flat.top.npu.memory_ordering.output_sums[6][31:0]
+[color] 1
+TOP.hosted_top_flat.top.npu.memory_ordering.output_sums[7][31:0]
+[color] 3
+TOP.hosted_top_flat.top.npu.memory_ordering.output_bias[0][31:0]
+[color] 3
+TOP.hosted_top_flat.top.npu.memory_ordering.output_bias[1][31:0]
+[color] 3
+TOP.hosted_top_flat.top.npu.memory_ordering.output_bias[2][31:0]
+[color] 3
+TOP.hosted_top_flat.top.npu.memory_ordering.output_bias[3][31:0]
+[color] 3
+TOP.hosted_top_flat.top.npu.memory_ordering.output_bias[4][31:0]
+[color] 3
+TOP.hosted_top_flat.top.npu.memory_ordering.output_bias[5][31:0]
+[color] 3
+TOP.hosted_top_flat.top.npu.memory_ordering.output_bias[6][31:0]
+[color] 3
+TOP.hosted_top_flat.top.npu.memory_ordering.output_bias[7][31:0]
+TOP.hosted_top_flat.top.npu.memory_interface.memory_data_in_ff[0][31:0]
+TOP.hosted_top_flat.top.npu.memory_interface.memory_data_in_ff[1][31:0]
+[color] 2
+TOP.hosted_top_flat.top.npu.memory_ordering.results[0][31:0]
+[color] 2
+TOP.hosted_top_flat.top.npu.memory_ordering.results[1][31:0]
+[color] 2
+TOP.hosted_top_flat.top.npu.memory_ordering.results[2][31:0]
+[color] 2
+TOP.hosted_top_flat.top.npu.memory_ordering.results[3][31:0]
+[color] 2
+TOP.hosted_top_flat.top.npu.memory_ordering.results[4][31:0]
+[color] 2
+TOP.hosted_top_flat.top.npu.memory_ordering.results[5][31:0]
+[color] 2
+TOP.hosted_top_flat.top.npu.memory_ordering.results[6][31:0]
+[color] 2
+TOP.hosted_top_flat.top.npu.memory_ordering.results[7][31:0]
+[pattern_trace] 1
+[pattern_trace] 0
