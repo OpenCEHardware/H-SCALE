@@ -12,7 +12,7 @@
 #if VM_TRACE_FST
 #include <verilated_fst_c.h>
 #else
-#include <verilated_vdc_c.h>
+#include <verilated_vcd_c.h>
 #endif
 #endif
 
