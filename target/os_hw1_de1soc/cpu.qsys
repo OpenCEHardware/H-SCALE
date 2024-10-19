@@ -264,7 +264,7 @@
          type = "String";
       }
    }
-   element scaleNPU_0
+   element hs_npu_0
    {
       datum _sortIndex
       {
@@ -569,7 +569,7 @@
   <parameter name="simDrivenValue" value="0" />
   <parameter name="width" value="2" />
  </module>
- <module name="scaleNPU_0" kind="scaleNPU" version="1.0" enabled="1" />
+ <module name="hs_npu_0" kind="hs_npu" version="1.0" enabled="1" />
  <module name="timer" kind="altera_avalon_timer" version="23.1" enabled="1">
   <parameter name="alwaysRun" value="false" />
   <parameter name="counterSize" value="32" />
@@ -591,7 +591,7 @@
   <parameter name="baseAddress" value="0x800030d8" />
   <parameter name="defaultConnection" value="false" />
  </connection>
- <connection kind="avalon" version="23.1" start="cpu.dmem" end="scaleNPU_0.csr">
+ <connection kind="avalon" version="23.1" start="cpu.dmem" end="hs_npu_0.csr">
   <parameter name="arbitrationPriority" value="1" />
   <parameter name="baseAddress" value="0xc0000000" />
   <parameter name="defaultConnection" value="false" />
@@ -664,7 +664,7 @@
   <parameter name="baseAddress" value="0x0000" />
   <parameter name="defaultConnection" value="false" />
  </connection>
- <connection kind="avalon" version="23.1" start="scaleNPU_0.mem" end="memoria.s1">
+ <connection kind="avalon" version="23.1" start="hs_npu_0.mem" end="memoria.s1">
   <parameter name="arbitrationPriority" value="1" />
   <parameter name="baseAddress" value="0x0000" />
   <parameter name="defaultConnection" value="false" />
@@ -689,13 +689,13 @@
  <connection kind="clock" version="23.1" start="clk_0.clk" end="pio_buzzer.clk" />
  <connection kind="clock" version="23.1" start="clk_0.clk" end="pio_key_2.clk" />
  <connection kind="clock" version="23.1" start="clk_0.clk" end="cpu.clk" />
- <connection kind="clock" version="23.1" start="clk_0.clk" end="scaleNPU_0.clk" />
+ <connection kind="clock" version="23.1" start="clk_0.clk" end="hs_npu_0.clk" />
  <connection kind="clock" version="23.1" start="clk_0.clk" end="memoria.clk1" />
  <connection
    kind="interrupt"
    version="23.1"
    start="cpu.irq"
-   end="scaleNPU_0.interrupt">
+   end="hs_npu_0.interrupt">
   <parameter name="irqNumber" value="0" />
  </connection>
  <connection
@@ -753,7 +753,7 @@
    kind="reset"
    version="23.1"
    start="clk_0.clk_reset"
-   end="scaleNPU_0.reset" />
+   end="hs_npu_0.reset" />
  <connection
    kind="reset"
    version="23.1"
