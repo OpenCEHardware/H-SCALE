@@ -52,6 +52,11 @@ int main(int argc, char **argv)
 		parser, "secs", "fail the simulation if it won't halt within a given timeout", {"timeout"}
 	);
 
+	args::ValueFlag<unsigned> ram_size
+	(
+		parser, "bytes", "size of system RAM in bytes", {'s', "ram-size"}, args::Options::Required
+	);
+
 	args::Positional<std::string> image
 	(
 		parser, "image", "ELF executable to run", args::Options::Required
@@ -82,9 +87,7 @@ int main(int argc, char **argv)
 #endif
 	}
 
-	//FIXME: don't hard-code.
-	// Note: unfortunately, this can't be derived from ELF tables
-	owned_memory_region sys_ram(sim, 0x01000000, 0x03000000);
+	owned_memory_region sys_ram(sim, 0x00000000, *ram_size);
 
 	elf_loader loader(sim, image->c_str());
 	if (int error = loader.error(); error != 0) {

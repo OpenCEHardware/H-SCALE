@@ -3306,6 +3306,7 @@ namespace args
         operator ()(const std::string &name, const std::string &value, T &destination)
         {
             std::istringstream ss(value);
+			ss >> std::setbase(0);
             bool failed = !(ss >> destination);
 
             if (!failed)
