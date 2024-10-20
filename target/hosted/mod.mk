@@ -13,5 +13,12 @@ define core
     hosted_top_flat.sv
 
   $(this)/vl_main  := main.cpp
-  $(this)/vl_files := axi.cpp elf_loader.cpp magic_io.cpp simulation.cpp
+  $(this)/vl_files := \
+    axi.cpp \
+    elf_loader.cpp \
+    jtag_uart.cpp \
+    magic_io.cpp \
+    simulation.cpp
+
+  $(this)/vl_pkgconfig := ncursesw
 endef

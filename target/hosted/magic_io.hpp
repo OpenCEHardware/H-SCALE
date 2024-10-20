@@ -18,6 +18,14 @@ class magic_io_agent : public memory_mapped
 		}
 
 		virtual bool write_relative(unsigned address, unsigned data);
+
+		inline void mute() noexcept
+		{
+			this->muted_ = true;
+		}
+
+	private:
+		bool muted_ = false;
 };
 
 #endif

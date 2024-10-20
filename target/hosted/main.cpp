@@ -10,6 +10,7 @@
 
 #include "args.hxx"
 #include "elf_loader.hpp"
+#include "jtag_uart.hpp"
 #include "magic_io.hpp"
 #include "memory_region.hpp"
 #include "simulation.hpp"
@@ -24,7 +25,7 @@ namespace
 	{
 		auto *sim = alarm_sim.exchange(nullptr);
 		if (sim)
-			sim->timeout();
+			sim->timed_out();
 	}
 }
 
@@ -49,12 +50,17 @@ int main(int argc, char **argv)
 
 	args::ValueFlag<unsigned> timeout
 	(
-		parser, "secs", "fail the simulation if it won't halt within a given timeout", {"timeout"}
+		parser, "secs", "fail the simulation if it won't halt within a given timeout", {'t', "timeout"}
 	);
 
 	args::ValueFlag<unsigned> ram_size
 	(
 		parser, "bytes", "size of system RAM in bytes", {'s', "ram-size"}, args::Options::Required
+	);
+
+	args::ValueFlag<unsigned> jtag_uart_base
+	(
+		parser, "address", "map an Altera JTAG UART device at this address", {"jtag-uart"}
 	);
 
 	args::Positional<std::string> image
@@ -109,9 +115,15 @@ int main(int argc, char **argv)
 	else
 		std::fputs("Warning: --magic-io not set and value cannot be determined from ELF tables\n", stderr);
 
-	std::unique_ptr<memory_mapped> magic_io;
+	std::unique_ptr<magic_io_agent> magic_io;
 	if (magic_io_base) {
 		magic_io = std::make_unique<magic_io_agent>(sim, *magic_io_base);
+		io_available = true;
+	}
+
+	std::unique_ptr<jtag_uart_agent> jtag_uart;
+	if (jtag_uart_base) {
+		jtag_uart = std::make_unique<jtag_uart_agent>(sim, *jtag_uart_base);
 		io_available = true;
 	}
 
@@ -132,7 +144,17 @@ int main(int argc, char **argv)
 	} else if (timeout)
 		std::fputs("Warning: --timeout=0 disables the timeout\n", stderr);
 
+	if (jtag_uart) {
+		if (magic_io)
+			magic_io->mute();
+
+		jtag_uart->takeover();
+	}
+
 	int exit_code = sim.run();
+
+	if (jtag_uart)
+		jtag_uart->release();
 
 #if VM_TRACE
 	if (trace_out) {

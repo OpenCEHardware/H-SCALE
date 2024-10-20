@@ -71,8 +71,11 @@ bool magic_io_agent::write_relative(unsigned address, unsigned data)
 					return false;
 				}
 
-				std::putchar(read_byte);
-				std::fflush(stdout);
+				if (!this->muted_) {
+					std::putchar(read_byte);
+					std::fflush(stdout);
+				}
+
 				write_address++;
 			}
 

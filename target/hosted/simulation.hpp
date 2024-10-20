@@ -100,7 +100,7 @@ class simulation
 
 		int run();
 
-		inline void timeout() noexcept
+		inline void timed_out() noexcept
 		{
 			this->timed_out_ = true;
 			this->halt(EXIT_FAILURE);
