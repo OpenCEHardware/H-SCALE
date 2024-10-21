@@ -1,0 +1,74 @@
+[*]
+[*] GTKWave Analyzer v3.4.0 (w)1999-2022 BSI
+[*] Mon Oct 21 06:08:45 2024
+[*]
+[dumpfile] "/home/jachm/Repos/H-SCALE/kk.vcd"
+[dumpfile_mtime] "Mon Oct 21 06:07:10 2024"
+[dumpfile_size] 1867866286
+[savefile] "/home/jachm/Repos/H-SCALE/target/axi.gtkw"
+[timestart] 108253
+[size] 2560 1345
+[pos] -1 -1
+*-3.600000 108279 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] TOP.
+[treeopen] TOP.hosted_top_flat.
+[treeopen] TOP.hosted_top_flat.top.
+[treeopen] TOP.hosted_top_flat.top.npu.
+[sst_width] 549
+[signals_width] 329
+[sst_expanded] 1
+[sst_vpaned_height] 416
+@22
+TOP.hosted_top_flat.top.npu.mem.araddr[31:0]
+TOP.hosted_top_flat.top.npu.memory_ordering.request_addr[31:0]
+@28
+TOP.hosted_top_flat.top.npu.mem.arvalid
+TOP.hosted_top_flat.top.npu.mem.arready
+TOP.hosted_top_flat.top.npu.memory_ordering.mem_valid_i
+TOP.hosted_top_flat.top.npu.memory_ordering.weight_fifo_valid_o
+TOP.hosted_top_flat.top.npu.memory_ordering.state[2:0]
+@22
+TOP.hosted_top_flat.top.npu.mem.rdata[31:0]
+@28
+TOP.hosted_top_flat.top.npu.mem.arburst[1:0]
+@22
+TOP.hosted_top_flat.top.npu.mem.arid[7:0]
+TOP.hosted_top_flat.top.npu.mem.arlen[7:0]
+@28
+TOP.hosted_top_flat.top.npu.mem.arready
+TOP.hosted_top_flat.top.npu.mem.arsize[2:0]
+@22
+TOP.hosted_top_flat.top.npu.mem.awaddr[31:0]
+@28
+TOP.hosted_top_flat.top.npu.mem.awburst[1:0]
+@22
+TOP.hosted_top_flat.top.npu.mem.awid[7:0]
+TOP.hosted_top_flat.top.npu.mem.awlen[7:0]
+@28
+TOP.hosted_top_flat.top.npu.mem.awready
+TOP.hosted_top_flat.top.npu.mem.awsize[2:0]
+TOP.hosted_top_flat.top.npu.mem.awvalid
+@22
+TOP.hosted_top_flat.top.npu.mem.bid[7:0]
+@28
+TOP.hosted_top_flat.top.npu.mem.bready
+TOP.hosted_top_flat.top.npu.mem.bresp[1:0]
+TOP.hosted_top_flat.top.npu.mem.bvalid
+@22
+TOP.hosted_top_flat.top.npu.mem.rid[7:0]
+@28
+TOP.hosted_top_flat.top.npu.mem.rlast
+TOP.hosted_top_flat.top.npu.mem.rready
+TOP.hosted_top_flat.top.npu.mem.rresp[1:0]
+TOP.hosted_top_flat.top.npu.mem.rvalid
+@22
+TOP.hosted_top_flat.top.npu.mem.wdata[31:0]
+@28
+TOP.hosted_top_flat.top.npu.mem.wlast
+TOP.hosted_top_flat.top.npu.mem.wready
+@22
+TOP.hosted_top_flat.top.npu.mem.wstrb[3:0]
+@29
+TOP.hosted_top_flat.top.npu.mem.wvalid
+[pattern_trace] 1
+[pattern_trace] 0

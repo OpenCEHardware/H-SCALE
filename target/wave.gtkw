@@ -1,15 +1,15 @@
 [*]
 [*] GTKWave Analyzer v3.4.0 (w)1999-2022 BSI
-[*] Fri Oct 18 21:52:46 2024
+[*] Mon Oct 21 07:52:11 2024
 [*]
 [dumpfile] "/home/jachm/Repos/H-SCALE/kk.vcd"
-[dumpfile_mtime] "Fri Oct 18 18:59:59 2024"
-[dumpfile_size] 2448412259
+[dumpfile_mtime] "Mon Oct 21 07:17:09 2024"
+[dumpfile_size] 6333583879
 [savefile] "/home/jachm/Repos/H-SCALE/target/wave.gtkw"
-[timestart] 94935
+[timestart] 670653
 [size] 1920 985
-[pos] -27 -24
-*-4.799999 94968 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[pos] -1 -1
+*-2.999999 652106 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] TOP.
 [treeopen] TOP.hosted_top_flat.
 [treeopen] TOP.hosted_top_flat.top.
@@ -26,7 +26,59 @@
 [sst_width] 297
 [signals_width] 349
 [sst_expanded] 1
-[sst_vpaned_height] 438
+[sst_vpaned_height] 306
+@22
+TOP.hosted_top_flat.top.npu.mem.araddr[31:0]
+TOP.hosted_top_flat.top.npu.memory_ordering.request_addr[31:0]
+@28
+TOP.hosted_top_flat.top.npu.mem.arvalid
+TOP.hosted_top_flat.top.npu.mem.arready
+TOP.hosted_top_flat.top.npu.memory_ordering.mem_valid_i
+TOP.hosted_top_flat.top.npu.memory_ordering.weight_fifo_valid_o
+TOP.hosted_top_flat.top.npu.memory_ordering.state[2:0]
+@22
+TOP.hosted_top_flat.top.npu.mem.rdata[31:0]
+@28
+TOP.hosted_top_flat.top.npu.mem.arburst[1:0]
+@22
+TOP.hosted_top_flat.top.npu.mem.arid[7:0]
+TOP.hosted_top_flat.top.npu.mem.arlen[7:0]
+@28
+TOP.hosted_top_flat.top.npu.mem.arready
+TOP.hosted_top_flat.top.npu.mem.arsize[2:0]
+@22
+TOP.hosted_top_flat.top.npu.mem.awaddr[31:0]
+@28
+TOP.hosted_top_flat.top.npu.mem.awburst[1:0]
+@22
+TOP.hosted_top_flat.top.npu.mem.awid[7:0]
+TOP.hosted_top_flat.top.npu.mem.awlen[7:0]
+@28
+TOP.hosted_top_flat.top.npu.mem.awready
+TOP.hosted_top_flat.top.npu.mem.awsize[2:0]
+TOP.hosted_top_flat.top.npu.mem.awvalid
+@22
+TOP.hosted_top_flat.top.npu.mem.bid[7:0]
+@28
+TOP.hosted_top_flat.top.npu.mem.bready
+TOP.hosted_top_flat.top.npu.mem.bresp[1:0]
+TOP.hosted_top_flat.top.npu.mem.bvalid
+@22
+TOP.hosted_top_flat.top.npu.mem.rid[7:0]
+@28
+TOP.hosted_top_flat.top.npu.mem.rlast
+TOP.hosted_top_flat.top.npu.mem.rready
+TOP.hosted_top_flat.top.npu.mem.rresp[1:0]
+TOP.hosted_top_flat.top.npu.mem.rvalid
+@22
+TOP.hosted_top_flat.top.npu.mem.wdata[31:0]
+@28
+TOP.hosted_top_flat.top.npu.mem.wlast
+TOP.hosted_top_flat.top.npu.mem.wready
+@22
+TOP.hosted_top_flat.top.npu.mem.wstrb[3:0]
+@28
+TOP.hosted_top_flat.top.npu.mem.wvalid
 @22
 [color] 4
 TOP.hosted_top_flat.top.npu.executive.num_input_rows_out[31:0]
@@ -76,9 +128,10 @@ TOP.hosted_top_flat.top.npu.memory_ordering.output_weights[4][15:0]
 TOP.hosted_top_flat.top.npu.memory_ordering.output_weights[5][15:0]
 [color] 5
 TOP.hosted_top_flat.top.npu.memory_ordering.output_weights[6][15:0]
-@421
 [color] 5
 TOP.hosted_top_flat.top.npu.memory_ordering.output_weights[7][15:0]
+@28
+TOP.hosted_top_flat.top.npu.memory_ordering.input_fifo_valid_o
 @420
 [color] 6
 TOP.hosted_top_flat.top.npu.memory_ordering.output_inputs[0][15:0]
@@ -119,6 +172,7 @@ TOP.hosted_top_flat.top.cpu.ctrl_wait_irq
 TOP.hosted_top_flat.top.cpu.ctrl_begin_irq
 TOP.hosted_top_flat.top.npu.executive.finished
 TOP.hosted_top_flat.top.npu.executive.code[1:0]
+TOP.hosted_top_flat.top.npu.memory_ordering.clk
 @420
 [color] 1
 TOP.hosted_top_flat.top.npu.memory_ordering.output_sums[0][31:0]
@@ -146,14 +200,19 @@ TOP.hosted_top_flat.top.npu.memory_ordering.output_bias[2][31:0]
 TOP.hosted_top_flat.top.npu.memory_ordering.output_bias[3][31:0]
 [color] 3
 TOP.hosted_top_flat.top.npu.memory_ordering.output_bias[4][31:0]
+@421
 [color] 3
 TOP.hosted_top_flat.top.npu.memory_ordering.output_bias[5][31:0]
+@420
 [color] 3
 TOP.hosted_top_flat.top.npu.memory_ordering.output_bias[6][31:0]
 [color] 3
 TOP.hosted_top_flat.top.npu.memory_ordering.output_bias[7][31:0]
 TOP.hosted_top_flat.top.npu.memory_interface.memory_data_in_ff[0][31:0]
 TOP.hosted_top_flat.top.npu.memory_interface.memory_data_in_ff[1][31:0]
+@28
+TOP.hosted_top_flat.top.npu.memory_ordering.mem_ready_i
+@420
 [color] 2
 TOP.hosted_top_flat.top.npu.memory_ordering.results[0][31:0]
 [color] 2
@@ -170,5 +229,21 @@ TOP.hosted_top_flat.top.npu.memory_ordering.results[5][31:0]
 TOP.hosted_top_flat.top.npu.memory_ordering.results[6][31:0]
 [color] 2
 TOP.hosted_top_flat.top.npu.memory_ordering.results[7][31:0]
+@28
+TOP.hosted_top_flat.top.npu.memory_ordering.output_fifo_reread
+TOP.hosted_top_flat.top.npu.memory_ordering.output_fifo_ready_o
+TOP.hosted_top_flat.top.npu.memory_ordering.mem_write_valid_o
+@22
+TOP.hosted_top_flat.top.npu.memory_ordering.output_counter[31:0]
+@420
+TOP.hosted_top_flat.top.npu.memory_ordering.current_i[31:0]
+TOP.hosted_top_flat.top.npu.memory_ordering.inference_result[0][15:0]
+TOP.hosted_top_flat.top.npu.memory_ordering.inference_result[1][15:0]
+TOP.hosted_top_flat.top.npu.memory_ordering.inference_result[2][15:0]
+TOP.hosted_top_flat.top.npu.memory_ordering.inference_result[3][15:0]
+TOP.hosted_top_flat.top.npu.memory_ordering.inference_result[4][15:0]
+TOP.hosted_top_flat.top.npu.memory_ordering.inference_result[5][15:0]
+TOP.hosted_top_flat.top.npu.memory_ordering.inference_result[6][15:0]
+TOP.hosted_top_flat.top.npu.memory_ordering.inference_result[7][15:0]
 [pattern_trace] 1
 [pattern_trace] 0
