@@ -371,6 +371,8 @@
   <parameter name="AUTO_IRQ_INTERRUPTS_USED" value="1" />
   <parameter name="FETCH_BURST_LEN" value="4" />
   <parameter name="HART_ID" value="0" />
+  <parameter name="MEM_IO_FIFO_DEPTH" value="8" />
+  <parameter name="MEM_PENDING_FIFO_DEPTH" value="8" />
  </module>
  <module
    name="jtag_uart_0"
