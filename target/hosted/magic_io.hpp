@@ -9,7 +9,7 @@ class magic_io_agent : public memory_mapped
 {
 	public:
 		inline magic_io_agent(simulation &sim, unsigned base)
-		: memory_mapped{sim, base, 4 * sizeof(std::uint64_t)}
+		: memory_mapped{sim, base, 2 * sizeof(std::uint64_t)}
 		{}
 
 		inline virtual bool read_relative(unsigned address, unsigned &data)
