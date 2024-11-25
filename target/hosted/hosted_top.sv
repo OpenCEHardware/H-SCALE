@@ -52,7 +52,7 @@ module hosted_top
       .axim(npu_csr_regblock.master)
   );
 
-  if_rst_sync rst_sync (
+  rst_sync_if rst_sync (
       .clk,
       .rst_n,
       .srst_n

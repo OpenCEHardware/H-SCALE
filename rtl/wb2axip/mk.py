@@ -8,4 +8,5 @@ rtl = find_files('*.v')
 rtl.take('axissafety.v')
 rtl.take('migsdram.v')
 
-wb2axip.rtl(rtl)
+wb2axip.rtl       (rtl)
+wb2axip.skip_lint ()
