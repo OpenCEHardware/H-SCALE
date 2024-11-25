@@ -1,16 +1,4 @@
-top := hsv_core
-
-core_dirs := \
-  modules/cpu/rtl   \
-  modules/cpu/tb    \
-  modules/npu/rtl   \
-  modules/npu/tb    \
-  modules/sw        \
-  rtl               \
-  target
-
-.PHONY: all
-
-all: test
+# Default target. If you change this to 'xyz:', then 'make' becomes shorthand for 'make xyz'.
+lint:
 
 include mk/top.mk
