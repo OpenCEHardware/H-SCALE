@@ -8,5 +8,5 @@ add_subdir('rtl/wb2axip')
 
 add_subdir('sim')
 
-add_subdir('target/hosted')
+add_subdir('target/simulator')
 add_subdir('target/os_hw1_de1soc')
