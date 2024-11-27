@@ -1,1 +1,1 @@
-set_global_assignment -name HEX_FILE hsv_host_sw.hex
+set_global_assignment -name HEX_FILE hsv_rom_iris.hex
